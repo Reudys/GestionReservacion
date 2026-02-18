@@ -9,6 +9,6 @@ namespace Reservaciones.Models
         public TimeOnly ReservTime { get; set; }
         public int Amount { get; set; }
         public string Name { get; set; }
-        public Secciones seccion { get; set; }
+        public Secciones Seccion { get; set; }
     }
 }
