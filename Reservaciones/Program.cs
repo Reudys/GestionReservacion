@@ -16,6 +16,7 @@ builder.Services.AddDbContext<DataContext>( options =>
 );
 
 builder.Services.AddScoped<IReservaService, ReservaService>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 var app = builder.Build();
 

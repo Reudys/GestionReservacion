@@ -9,5 +9,6 @@ namespace Reservaciones.Data
         {
         }
         public DbSet<Reserva> Reservaciones { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }
