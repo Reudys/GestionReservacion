@@ -22,6 +22,26 @@ namespace Reservaciones.Services
         {
             return await _context.Users.ToListAsync();
         }
+
+        public async Task<User> UpdateUserAsync(int id, User user)
+        {
+            var existingUser = await _context.Users.FindAsync(id);
+            if (existingUser == null) return null;
+            existingUser.Name = user.Name;
+            existingUser.Username = user.Username;
+            existingUser.Password = user.Password;
+            await _context.SaveChangesAsync();
+            return existingUser;
+        }
+
+        public async Task<bool> DeleteUserAsync(int id)
+        {
+            var user = await _context.Users.FindAsync(id);
+            if (user == null) return false;
+            _context.Users.Remove(user);
+            await _context.SaveChangesAsync();
+            return true;
+        }
         #endregion
 
         #region Custom Methods
